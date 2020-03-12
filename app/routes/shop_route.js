@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-let shop = require("../models/shop_model.js");
+let Shop = require("../models/shop_model.js");
 
 // === do shop like food === //
 
