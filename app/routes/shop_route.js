@@ -15,7 +15,7 @@ router.post("/shop/", function(request, response) {
       if (err) response.status(500).send({ message: err }); 
       else {
         //console.log("SAVE COMPLETE");
-        // console.log(response);
+        console.log(response);
         response.send(mgResponse);
       }
     });
