@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 
 const foods = require("./db");
-const shop = require("./db");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
