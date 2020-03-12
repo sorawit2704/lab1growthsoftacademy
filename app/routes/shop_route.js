@@ -8,7 +8,7 @@ router.post("/shop/", function(request, response) {
   
     let shop = new Shop(); // กำหนด food ให้เหมือน Schema รอบที่แล้ว
     console.log(shop);
-    shop.shopname = request.body.shopName; 
+    shop.shopname = request.body.shopname; 
   
     shop.address = request.body.address; 
     // shop.save(function(err, mgResponse) {
