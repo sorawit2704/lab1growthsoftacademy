@@ -10,7 +10,7 @@ router.post("/shop/", function(request, response) {
   
     let shop = new Shop(); // กำหนด food ให้เหมือน Schema รอบที่แล้ว
     console.log(shop);
-    shop.name = request.body.shopName; 
+    shop.shopname = request.body.shopName; 
   
     // console.log(parseFloat(request.body.address)); // validate data
     // if (isNaN(parseFloat(request.body.address))) // check number
