@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 const foods = require("./db");
+const shop = require("./db");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -80,34 +81,37 @@ app.use(function(req, res, next) {
   // Pass to next layer of middleware
   next();
 }); 
+ 
+app.use("/api", require("./app/routes/food_route.js")); 
+app.use("/api", require("./app/routes/shop_route.js")); 
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World");
+// });
 
-app.get("/foods", (req, res) => {
-  res.json(foods);
-});
+// app.get("/foods", (req, res) => {
+//   res.json(foods);
+// });
 
-app.get("/foods/:id", (req, res) => {
-  res.json(foods.find(food => food.id === req.params.id));
-});
+// app.get("/foods/:id", (req, res) => {
+//   res.json(foods.find(food => food.id === req.params.id));
+// });
 
-app.post("/foods", (req, res) => {
-  foods.push(req.body);
-  res.status(201).json(req.body);
-});
+// app.post("/foods", (req, res) => {
+//   foods.push(req.body);
+//   res.status(201).json(req.body);
+// });
 
-app.put("/foods/:id", (req, res) => {
-  const updateIndex = foods.findIndex(food => food.id === req.params.id);
-  res.json(Object.assign(foods[updateIndex], req.body));
-});
+// app.put("/foods/:id", (req, res) => {
+//   const updateIndex = foods.findIndex(food => food.id === req.params.id);
+//   res.json(Object.assign(foods[updateIndex], req.body));
+// });
 
-app.delete("/foods/:id", (req, res) => {
-  const deletedIndex = foods.findIndex(food => food.id === req.params.id);
-  foods.splice(deletedIndex, 1);
-  res.status(204).send();
-});
+// app.delete("/foods/:id", (req, res) => {
+//   const deletedIndex = foods.findIndex(food => food.id === req.params.id);
+//   foods.splice(deletedIndex, 1);
+//   res.status(204).send();
+// });
 
 // START THE SERVER
 // =============================================================================
