@@ -10,15 +10,7 @@ router.post("/shop/", function(request, response) {
     console.log(shop);
     shop.shopname = request.body.shopname; 
   
-    shop.address = request.body.address; 
-    // shop.save(function(err, mgResponse) {
-    //   if (err) response.status(500).send({ message: err }); 
-    //   else {
-    //     //console.log("SAVE COMPLETE");
-    //     console.log(response);
-    //     response.send(mgResponse);
-    //   }
-    // });
+    shop.address = request.body.address;
     console.log(parseInt(request.body.tel)); // validate data
     if (isNaN(parseInt(request.body.tel))) // check number
       response.status(500).send({ message: "tel is not a number" });
