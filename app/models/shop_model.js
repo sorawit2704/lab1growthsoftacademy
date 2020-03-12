@@ -1,4 +1,3 @@
-//-ชื่อร้านค้า -ที่อยูู่ร้านค้า -เบอร์โทรร้านค้า
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var typeObjectId = mongoose.Schema.Types.ObjectId;
