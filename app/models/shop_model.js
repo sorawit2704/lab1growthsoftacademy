@@ -5,7 +5,7 @@ var typeObjectId = mongoose.Schema.Types.ObjectId;
 var Shop_Schema = new Schema({
   name: { type: String, default: null },
   address: { type: String, default: null },
-  tel: { type: Number, default: null }
+  tel: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model("Shop", Shop_Schema);
