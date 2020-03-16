@@ -43,7 +43,7 @@ router.post("/food/", function(request, response) {
     if (mgResponse == undefined)
       response
         .status(404)
-        .send({ message: id ${request.params.id} not found });
+        .send({ message: 'id ${request.params.id} not found'});
     else response.send(mgResponse);
   });
 });
