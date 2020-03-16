@@ -25,5 +25,14 @@ router.post("/food/", function(request, response) {
       });
     }
   });
+  
+  router.get("/food/", function(request, response) {
+    console.log("REQUEST GET!!");
+    console.log(request.params.id);
+    let data = null;
+    Food.find(function(err, mgResponse) {
+      response.send(mgResponse);
+    });
+  });
 
   module.exports = router;
