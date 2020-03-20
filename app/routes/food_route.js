@@ -48,6 +48,18 @@ router.post("/food/", function(request, response) {
   });
 });
 
+router.delete("/food/:id", function(request, response) {
+  console.log(request.params.id);
+  let data = null;
+  deleteFoodById(request.params.id, function(err, mgResponse) {
+    if (mgResponse == undefined)
+      response
+        .status(404)
+        .send({ message: 'id ${request.params.id} not found '});
+    else response.send(mgResponse);
+  });
+});
+
 module.exports = router;
 
 function findFoodById(id, callback) {
@@ -57,5 +69,12 @@ function findFoodById(id, callback) {
     callback(err, mgResponse);
 
     // console.log(mgResponse[0].name);
+  });
+}
+
+function deleteFoodById(id, callback) {
+  Food.remove({ _id: id }, function(err, mgResponse) {
+    console.log(mgResponse);
+    callback(err, mgResponse);
   });
 }
