@@ -92,7 +92,7 @@ function deleteFoodById(id, callback) {
 }
 
 function updateFoodById(id, callback) {
-  Food.update({ _id: id }, function(err, mgResponse) {
+  Food.updateOne({ _id: id }, function(err, mgResponse) {
     console.log(mgResponse);
     callback(err, mgResponse);
   });
