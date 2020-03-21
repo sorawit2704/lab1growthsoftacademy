@@ -60,6 +60,18 @@ router.delete("/food/:id", function(request, response) {
   });
 });
 
+router.update("/food/:id", function(request, response) {
+  console.log(request.params.id);
+  let data = null;
+  updateFoodById(request.params.id, function(err, mgResponse) {
+    if (mgResponse == undefined)
+      response
+        .status(404)
+        .send({ message: 'id ${request.params.id} not found'});
+    else response.send(mgResponse);
+  });
+});
+
 module.exports = router;
 
 function findFoodById(id, callback) {
@@ -74,6 +86,13 @@ function findFoodById(id, callback) {
 
 function deleteFoodById(id, callback) {
   Food.remove({ _id: id }, function(err, mgResponse) {
+    console.log(mgResponse);
+    callback(err, mgResponse);
+  });
+}
+
+function updateFoodById(id, callback) {
+  Food.update({ _id: id }, function(err, mgResponse) {
     console.log(mgResponse);
     callback(err, mgResponse);
   });
