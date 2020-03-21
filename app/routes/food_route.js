@@ -34,7 +34,7 @@ router.post("/food/", function(request, response) {
       response.send(mgResponse);
     });
   });
-  
+
   router.get("/food/:id", function(request, response) {
   console.log("REQUEST GET!!");
   console.log(request.params.id);
@@ -60,7 +60,7 @@ router.delete("/food/:id", function(request, response) {
   });
 });
 
-router.update("/food/:id", function(request, response) {
+router.put("/food/:id", function(request, response) {
   console.log(request.params.id);
   let data = null;
   updateFoodById(request.params.id, function(err, mgResponse) {
