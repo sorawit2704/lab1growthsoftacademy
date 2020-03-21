@@ -8,7 +8,7 @@ router.post("/food/", function(request, response) {
   
     let food = new Food(); // กำหนด food ให้เหมือน Schema รอบที่แล้ว
     console.log(food);
-    food.name = request.body.foodName; 
+    food.name = request.body.foodname; 
   
     console.log(parseFloat(request.body.calory)); // validate data
     if (isNaN(parseFloat(request.body.calory))) // check number
